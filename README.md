@@ -6,7 +6,17 @@ Docker container for Bittorent Sync server.
 
 ### Running the container
 
-    docker run -d -p 8888:8888 -p 51315:51315 -v /local/dir:/mnt -v /srv/btsync --name BTSync phlak/btsync
+    docker run -d -p 8888:8888 -p 51315:51315 -e DEVICE_NAME=[SERVER_NAME] -v /srv/btsync --name BTSync phlak/btsync
+
+**NOTE:** Replace `[SERVER_NAME]` with the your desired server name.
+
+
+### Expose host directory to the container
+
+You can expose a directory on the host machine to the container by adding `-v /local/dir:/mnt` to
+your `docker run` command.
+
+**NOTE:** Replace `/local/dir` with the directory path on the host you'd like to expose.
 
 
 ### Updating btsync server
@@ -18,6 +28,7 @@ Update to latest version:
 Update to a specific version:
 
     docker exec BTSync /update.sh [URL_TO_BTSYNC_TARBALL]
+
 
 -----
 
