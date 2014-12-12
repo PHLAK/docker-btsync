@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -y upgrade
 RUN apt-get -y install wget
 
 ## Create btsync directories
-RUN mkdir /srv/btsync
+RUN mkdir /srv/btsync /srv/storage
 
 ## Add and chmod update script
 ADD files/update.sh /update.sh
@@ -28,7 +28,7 @@ ADD files/run.sh /run.sh
 RUN chmod +x /run.sh
 
 ## Define docker volumes
-VOLUME /srv/btsync
+VOLUME /srv/btsync /srv/storage
 
 ## Expose ports
 EXPOSE 8888 53135
