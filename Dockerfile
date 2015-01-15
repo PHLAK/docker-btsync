@@ -1,11 +1,10 @@
 FROM ubuntu:14.04
 MAINTAINER Chris Kankiewicz <Chris@ChrisKankiewicz.com>
 
-## Perform apt update / upgrade
-RUN apt-get update && apt-get -y upgrade
-
-## Install dependencies
-RUN apt-get -y install wget
+## Upgrade packages and install dependencies
+RUN apt-get update && apt-get -y upgrade \
+    && apt-get -y install wget \
+    && rm -rf /var/lib/apt/lists/*
 
 ## Create btsync directories
 RUN mkdir /srv/btsync /srv/storage
@@ -19,9 +18,6 @@ RUN /update.sh
 
 ## Add btsync config
 ADD files/btsync.conf /srv/btsync/btsync.conf
-
-## Perform apt cleanup
-RUN apt-get -y autoremove && apt-get -y clean && apt-get -y autoclean
 
 ## Add and chmod the run file
 ADD files/run.sh /run.sh
