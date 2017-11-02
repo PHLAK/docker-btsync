@@ -1,6 +1,10 @@
 docker-btsync
 ===================
 
+**!!! UNMAINTAINED !!!** - I am no longer be maintaing this image.
+
+-----
+
 Docker container for Bittorent Sync server.
 
 
