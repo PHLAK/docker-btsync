@@ -1,7 +1,7 @@
 docker-btsync
 ===================
 
-**!!! UNMAINTAINED !!!** - I am no longer be maintaing this image.
+**!!! UNMAINTAINED !!!** - I am no longer maintaing this image.
 
 -----
 
